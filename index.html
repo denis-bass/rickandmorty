@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>- API Rick & Marty -</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="app" v-cloak>
+    <div class="search-bar">
+        <input type="text" v-model ="searchText" placeholder="Search Pokémon">
+    </div>
+    <ul>
+        <li v-for="pokemon in filteredPokemons" :key="pokemon.id" :class="getTypeClass(pokemon.types[0].type.name)">
+            <div class="pokemon-card">
+                <img :src="pokemon.sprite.front_default" alt="pokemon-image">
+                <p class="pokemon-name">{{pokemon.name.toUpperCase()}}</p>
+                <div v-if="pokemon.showDetails" class="details">
+                    <p>Tipo: {{pokemon.types[0].type.name}}</p>
+                    <p>Peso: {{pokemon.weight}}</p>
+                    
+
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div v-if="loading"> Loading...</div>
+</div>
+</body>
+</html>
+
+<script src="index.js"></script>
+<!-- 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokédex - API Pokémon</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="app" v-cloak>
+    <button @click="fetchPokemons">Chamar pokemons</button>
+    <ul>
+        <li v-for="pokemon in pokemons" :key="pokemon.id">
+            <div class="pokemon-card">
+                <img :src="pokemon.sprite.front_default" alt="pokemon-image">
+                <p class="pokemon-name">{{pokemon.name.toUpperCase()}}</p>
+                <div v-if="pokemon.showDetails" class="details">
+                    <p>Tipo: {{pokemon.types[0].type.name}}</p>
+                    <p>Peso: {{pokemon.weight}}</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
+
+<script src="index.js"></script> -->
