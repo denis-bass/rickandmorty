@@ -12,7 +12,7 @@
         <input type="text" v-model ="searchText" placeholder="Search Pokémon">
     </div>
     <ul>
-        <li v-for="pokemon in filteredPokemons" :key="pokemon.id" :class="getTypeClass(pokemon.types[0].type.name)">
+        <li v-for="character in filteredPersonages" :key="character.id" :class="getTypeClass(pokemon.types[0].type.name)">
             <div class="pokemon-card">
                 <img :src="pokemon.sprite.front_default" alt="pokemon-image">
                 <p class="pokemon-name">{{pokemon.name.toUpperCase()}}</p>

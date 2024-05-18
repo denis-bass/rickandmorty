@@ -9,44 +9,41 @@ createApp({
         }
     },
     computed: {
-        filteredPokemons() {
-            return this.personages.filter(pokemon =>
-                pokemon.name.toLowerCase().includes(this.searchText.toLowerCase())
+        filteredPersonages() {
+            return this.personages.filter(character =>
+                character.name.toLowerCase().includes(this.searchText.toLowerCase())
             );
         }
     },
     created() {
         // todo o momento que acontecer o evento
-        this.fetchPokemons();
+        this.fetchPersonages();
         window.addEventListener('scroll', this.handleScroll);
     },
     destroyed() {
         window.removeEventListener('scroll', this.handleScroll);
     },
     methods: {
-        async fetchPokemons() {
+        async fetchPersonages() {
             try {
-                const response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${(this.nextPage - 1) * 60}&limit=60`)
+                const response = await fetch(`https://rickandmortyapi.com/api/character?offset=${(this.nextPage - 1) * 60}&limit=60`)
                 const data = await response.json();
-                const pokemonDetailsPromises = data.results.map(async pokemon => this.fetchPokemonData(pokemon.url))
+                const personageDetailsPromises = data.results.map(async character => this.fetchPokemonData(character.url))
                 const pokemonDetails = await Promise.all(pokemonDetailsPromises)
-                this.pokemons = [... this.pokemons, ... pokemonDetails];
+                this.personages = [... this.personages, ... pokemonDetails];
                 this.nextPage++
                 this.loading = false;
             } catch (error) {
                 console.error(error)
             }
         },
-        async fetchPokemonData(url){
+        async fetchPersonageData(url){
             try {
                 const response = await fetch(url);
                 const data = await response.json();
                 return {
                     id: data.id,
                     name: data.name,
-                    weight: data.weight,
-                    types: data.types,
-                    sprite: data.sprites,
                     showDetails: true,
                 }
             } catch (error) {
