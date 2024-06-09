@@ -1,45 +1,9 @@
-/* [v-cloak] {
-    display: node;
-}
-body{
-    font-family: "Comic Sans MS";
-    background-color: #f5f5f5;
-    margin:0;
-}
-
-ul{
-    list-style-type: none;
-    padding:0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-li{
-    margin:16px;
-    padding: 8px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-}
-.personage-card{
-    text-align: center;
-
-}
-.personage-card img{
-    width: 160px;
-    height:160px;
-}
-.personage-name{
-    font-weight: bold;
-    margin: 10px;
-} */
 [v-cloak] {
     display: none;
 }
 
 body {
-    font-family: "Comic Sans MS";
+    font-family: "Calibri";
     background-color: #f5f5f5;
     margin: 0;
 }
@@ -70,8 +34,24 @@ li {
     height: 160px;
 }
 
+.personage-card .aaa {
+    position: absolute; bottom:0; left:0;
+}
+
+
 .personage-name {
     font-weight: bold;
     margin: 10px;
 }
+
+.human { background-color: #C9C9C9 }
+.humanoid { background-color: #98741e }
+.animal {background-color: #A0522D}
+.mythological { background-color: #9e5cda }
+.alien { background-color: #4CAF50 }
+.robot {background-color: #555555}
+.disease { background-color: rgba(255, 7, 65, 0.97)}
+.poopybutthole { background-color: #DAA520 }
+.cronenberg { background-color: #c9056e }
+
 

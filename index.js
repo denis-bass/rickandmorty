@@ -48,6 +48,8 @@ createApp({
                     image: data.image,
                     species: data.species,
                     origin:data.origin,
+                    status: data.status,
+
                     showDetails: true,
                 }
             } catch (error) {
@@ -56,25 +58,16 @@ createApp({
         },
         getTypeClass(type) {
             const typeClassMap = {
-                human: "Human",
-                fire: 'fire',
-                grass: 'grass',
-                water: 'water',
-                bug: 'bug',
-                normal: 'normal',
-                poison: 'poison',
-                electric: 'electric',
-                fairy: 'fairy',
-                fighting: 'fighting',
-                ground: 'ground',
-                rock: 'rock',
-                ghost: 'ghost',
-                dragon: 'dragon',
-                ice: 'ice',
-                psychic: 'psychic',
-                steel: 'steel',
-                dark: 'dark',
-                flying: 'flying'
+                "Human": "human",
+                "Humanoid": "humanoid",
+                "Animal": "animal",
+                "Mythological Creature": "mythological",
+                "Alien": "alien",
+                "Robot": "robot",
+                "Disease": "disease",
+                "Poopbutthole":"poopbutthole",
+                "Cronenberg": "cronenberg"
+
             }
 
             return typeClassMap[type] || ''

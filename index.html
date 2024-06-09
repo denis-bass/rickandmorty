@@ -2,8 +2,9 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>- API Rick & Marty -</title>
+    <title>API Rick & Morty</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
@@ -15,9 +16,9 @@
         <li v-for="personage in filteredPersonages" :key="personage.id" :class="getTypeClass(personage.species)">
             <div class="personage-card">
                 <img :src="personage.image" alt="personage-image">
-                <p class="personage-name">{{personage.name.toUpperCase()}}</p>
+                <p class="personage-name"><i v-if="personage.status=='Dead'" class="material-symbols-outlined">skull</i></img>{{personage.name.toUpperCase()}}</p>
                 <div class="details">
-                    <p>Tipo: {{personage.species}}</p>
+                    <p>Espécie: {{personage.species}}</p>
                     <p>Origem: {{personage.origin.name}}</p>
                     
 
@@ -31,32 +32,3 @@
 </html>
 
 <script src="index.js"></script>
-<!-- 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Pokédex - API Pokémon</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-</head>
-<body>
-<div id="app" v-cloak>
-    <button @click="fetchpersonages">Chamar personages</button>
-    <ul>
-        <li v-for="personage in personages" :key="personage.id">
-            <div class="personage-card">
-                <img :src="personage.sprite.front_default" alt="personage-image">
-                <p class="personage-name">{{personage.name.toUpperCase()}}</p>
-                <div v-if="personage.showDetails" class="details">
-                    <p>Tipo: {{personage.types[0].type.name}}</p>
-                    <p>Peso: {{personage.weight}}</p>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-</body>
-</html>
-
-<script src="index.js"></script> -->
