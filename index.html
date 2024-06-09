@@ -10,7 +10,7 @@
 <body>
 <div id="app" v-cloak>
     <div class="search-bar">
-        <input type="text" placeholder="Pesquisar personagens...">
+        <input type="text" v-model="searchText" placeholder="Filtrar personagens carregados...">
         <button type="submit">Buscar</button>
     </div>
     <div style="margin-top: 50px;">

@@ -9,7 +9,6 @@ body {
 }
 
 ul {
-    top:100;
     list-style-type: none;
     padding: 0;
     display: flex;

@@ -26,7 +26,7 @@ createApp({
     methods: {
         async fetchPersonages() {
             try {
-                const response = await fetch(`https://rickandmortyapi.com/api/character?page=${(this.nextPage)}`)
+                const response = await fetch(`https://rickandmortyapi.com/api/character?page=${(this.nextPage)}`);
                 const data = await response.json();
                 const personageDetailsPromises = data.results.map(async personages => this.fetchPersonageData(personages.url))
                 const personageDetails = await Promise.all(personageDetailsPromises)
@@ -65,7 +65,7 @@ createApp({
                 "Alien": "alien",
                 "Robot": "robot",
                 "Disease": "disease",
-                "Poopbutthole":"poopbutthole",
+                "Poopybutthole":"poopybutthole",
                 "Cronenberg": "cronenberg"
 
             }
