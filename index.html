@@ -10,8 +10,10 @@
 <body>
 <div id="app" v-cloak>
     <div class="search-bar">
-        <input type="text" v-model ="searchText" placeholder="Procurar Personagem">
+        <input type="text" placeholder="Pesquisar personagens...">
+        <button type="submit">Buscar</button>
     </div>
+    <div style="margin-top: 50px;">
     <ul>
         <li v-for="personage in filteredPersonages" :key="personage.id" :class="getTypeClass(personage.species)">
             <div class="personage-card">
@@ -26,6 +28,7 @@
             </div>
         </li>
     </ul>
+    </div>
     <div v-if="loading"> Carregando...</div>
 </div>
 </body>
