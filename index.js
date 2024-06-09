@@ -10,8 +10,8 @@ createApp({
     },
     computed: {
         filteredPersonages() {
-            return this.personages.filter(character =>
-                character.name.toLowerCase().includes(this.searchText.toLowerCase())
+            return this.personages.filter(personages =>
+                personages.name.toLowerCase().includes(this.searchText.toLowerCase())
             );
         }
     },
@@ -26,16 +26,17 @@ createApp({
     methods: {
         async fetchPersonages() {
             try {
-                const response = await fetch(`https://rickandmortyapi.com/api/character?offset=${(this.nextPage - 1) * 60}&limit=60`)
+                const response = await fetch(`https://rickandmortyapi.com/api/character?page=${(this.nextPage)}`)
                 const data = await response.json();
-                const personageDetailsPromises = data.results.map(async character => this.fetchPokemonData(character.url))
-                const pokemonDetails = await Promise.all(pokemonDetailsPromises)
-                this.personages = [... this.personages, ... pokemonDetails];
+                const personageDetailsPromises = data.results.map(async personages => this.fetchPersonageData(personages.url))
+                const personageDetails = await Promise.all(personageDetailsPromises)
+                this.personages = [... this.personages, ... personageDetails];
                 this.nextPage++
                 this.loading = false;
             } catch (error) {
                 console.error(error)
             }
+            console.log(this.personages);
         },
         async fetchPersonageData(url){
             try {
@@ -44,6 +45,9 @@ createApp({
                 return {
                     id: data.id,
                     name: data.name,
+                    image: data.image,
+                    species: data.species,
+                    origin:data.origin,
                     showDetails: true,
                 }
             } catch (error) {
@@ -52,6 +56,7 @@ createApp({
         },
         getTypeClass(type) {
             const typeClassMap = {
+                human: "Human",
                 fire: 'fire',
                 grass: 'grass',
                 water: 'water',
@@ -79,7 +84,7 @@ createApp({
             const bottomOfPage = document.documentElement.scrollTop + window.innerHeight  === document.documentElement.offsetHeight;
             if(bottomOfPage && !this.loading){
                 this.loading = true;
-                this.fetchPokemons();
+                this.fetchPersonages();
             }
         }
     }

@@ -22,15 +22,15 @@ li{
     transition: background-color 0.3s ease;
     cursor: pointer;
 }
-.pokemon-card{
+.personage-card{
     text-align: center;
 
 }
-.pokemon-card img{
+.personage-card img{
     width: 160px;
     height:160px;
 }
-.pokemon-name{
+.personage-name{
     font-weight: bold;
     margin: 10px;
 } */
@@ -61,16 +61,16 @@ li {
     cursor: pointer;
 }
 
-.pokemon-card {
+.personage-card {
     text-align: center;
 }
 
-.pokemon-card img {
+.personage-card img {
     width: 160px;
     height: 160px;
 }
 
-.pokemon-name {
+.personage-name {
     font-weight: bold;
     margin: 10px;
 }

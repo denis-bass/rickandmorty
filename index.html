@@ -9,23 +9,23 @@
 <body>
 <div id="app" v-cloak>
     <div class="search-bar">
-        <input type="text" v-model ="searchText" placeholder="Search Pokémon">
+        <input type="text" v-model ="searchText" placeholder="Procurar Personagem">
     </div>
     <ul>
-        <li v-for="character in filteredPersonages" :key="character.id" :class="getTypeClass(pokemon.types[0].type.name)">
-            <div class="pokemon-card">
-                <img :src="pokemon.sprite.front_default" alt="pokemon-image">
-                <p class="pokemon-name">{{pokemon.name.toUpperCase()}}</p>
-                <div v-if="pokemon.showDetails" class="details">
-                    <p>Tipo: {{pokemon.types[0].type.name}}</p>
-                    <p>Peso: {{pokemon.weight}}</p>
+        <li v-for="personage in filteredPersonages" :key="personage.id" :class="getTypeClass(personage.species)">
+            <div class="personage-card">
+                <img :src="personage.image" alt="personage-image">
+                <p class="personage-name">{{personage.name.toUpperCase()}}</p>
+                <div class="details">
+                    <p>Tipo: {{personage.species}}</p>
+                    <p>Origem: {{personage.origin.name}}</p>
                     
 
                 </div>
             </div>
         </li>
     </ul>
-    <div v-if="loading"> Loading...</div>
+    <div v-if="loading"> Carregando...</div>
 </div>
 </body>
 </html>
@@ -42,15 +42,15 @@
 </head>
 <body>
 <div id="app" v-cloak>
-    <button @click="fetchPokemons">Chamar pokemons</button>
+    <button @click="fetchpersonages">Chamar personages</button>
     <ul>
-        <li v-for="pokemon in pokemons" :key="pokemon.id">
-            <div class="pokemon-card">
-                <img :src="pokemon.sprite.front_default" alt="pokemon-image">
-                <p class="pokemon-name">{{pokemon.name.toUpperCase()}}</p>
-                <div v-if="pokemon.showDetails" class="details">
-                    <p>Tipo: {{pokemon.types[0].type.name}}</p>
-                    <p>Peso: {{pokemon.weight}}</p>
+        <li v-for="personage in personages" :key="personage.id">
+            <div class="personage-card">
+                <img :src="personage.sprite.front_default" alt="personage-image">
+                <p class="personage-name">{{personage.name.toUpperCase()}}</p>
+                <div v-if="personage.showDetails" class="details">
+                    <p>Tipo: {{personage.types[0].type.name}}</p>
+                    <p>Peso: {{personage.weight}}</p>
                 </div>
             </div>
         </li>
